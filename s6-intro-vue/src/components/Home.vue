@@ -1,5 +1,5 @@
 <template>
-   <escena></escena>
+   <escena :frases="elementos"></escena>
 </template>
 
 <script>
@@ -8,8 +8,21 @@ import Escena from './Escena.vue'
 // import Escena from '@/components/Escena.vue'
 
 export default {
-  name: 'Home',
-  components: {Escena}
+  name: 'home',
+  components: {Escena},
+  data () {
+    return {
+      elementos: [
+  "El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial",
+
+  "Sentia curiositat per l'interior de la nau i es va posar a inspeccionar-la. Va arribar a una sala amb dues portes.",
+
+  "L'heroi va decidir travessar la porta que el portava a casa",
+
+  "Mentrestant, altres heroes no van tenir tanta sort en la seva elecció ..."
+      ]
+    }
+  }
 }
 
 </script>

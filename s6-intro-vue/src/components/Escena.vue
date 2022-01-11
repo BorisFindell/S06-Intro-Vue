@@ -1,16 +1,17 @@
 <template>
   <div>
-    {{textoEscena}}
+    <ul>
+      <li v-for="(frase, index) in frases" :key="index">
+          {{frase}}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 
 export default {
-  data () {
-    return {
-      textoEscena: "El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial"
-    }
-  }
+  name: 'escena',
+  props: ['frases']
 }
 </script>
