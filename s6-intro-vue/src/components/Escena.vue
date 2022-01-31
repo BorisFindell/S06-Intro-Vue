@@ -1,8 +1,8 @@
 <template>
   <div class="container d-flex justify-content-center">
     <ul class="lista">
-      <li class="elem" v-for="(frase, index) in frases" :key="index">
-          {{frase}}
+      <li :class="{btnActive: index == activeSentence}" v-for="(frase, index) in frases" :key="index">
+          {{frase.txt}}
       </li>
     </ul>
   </div>
@@ -12,18 +12,21 @@
 
 export default {
   name: 'escena',
-  props: ['frases']
+  props: {
+    frases:Array,
+    activeSentence:Number}
 }
 </script>
 
 <style scoped>
+
   .lista {
     padding: 0px;
     text-align: center;
     margin-top: 20px;
   }
 
-  .elem {
+  li {
     list-style: none;
     border: 1px solid black;
     margin-bottom: 10px;
@@ -31,5 +34,8 @@ export default {
     border-radius: 50px;
   }
 
+.btnActive {
+  background-color: burlywood;
+}
 
 </style>

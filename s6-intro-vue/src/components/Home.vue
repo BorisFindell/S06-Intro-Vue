@@ -1,27 +1,55 @@
 <template>
-   <escena :frases="elementos"></escena>
+
+  <div id="home" :style="{ backgroundImage: `url(${elementos[currentSentence].img})`}">
+    <div>
+      <botons @seg-sentence="clickSegSentence" @ant-sentence="clickAntSentence"></botons>
+      <escena :frases="elementos" :activeSentence="currentSentence"></escena>
+
+    </div>
+  </div>
 </template>
 
 <script>
 import Escena from './Escena.vue'
+import Botons from './Botons.vue'
+import Benving from './Benving.vue'
+
 
 // import Escena from '@/components/Escena.vue'
 
 export default {
   name: 'home',
-  components: {Escena},
+  components: {Escena, Botons, Benving},
   data () {
     return {
       elementos: [
-  "El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial",
+  {txt: "El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial", img:("../img/1.jpg")},
 
-  "Sentia curiositat per l'interior de la nau i es va posar a inspeccionar-la. Va arribar a una sala amb dues portes.",
+  {txt: "Sentia curiositat per l'interior de la nau i es va posar a inspeccionar-la. Va arribar a una sala amb dues portes.", img: ("../img/2.jpg")},
 
-  "L'heroi va decidir travessar la porta que el portava a casa",
+  {txt: "L'heroi va decidir travessar la porta que el portava a casa", img: ("../img/3.jpg")},
 
-  "Mentrestant, altres heroes no van tenir tanta sort en la seva elecció ..."]
+  {txt: "Mentrestant, altres heroes no van tenir tanta sort en la seva elecció ...", img: ("../img/4.jpg")}
+      ],
+      currentSentence: 0
     }
+  },
+  methods:{
+        
+        clickSegSentence(){
+            if (this.currentSentence < this.elementos.length -1){
+              this.currentSentence ++;
+              // console.log(this.currentSentence);
+            }
+        },
+        clickAntSentence(){
+          if (this.currentSentence > 0){
+            this.currentSentence--;
+            // console.log(this.currentSentence);
+            }
+        }
   }
+
 }
 
 </script>
