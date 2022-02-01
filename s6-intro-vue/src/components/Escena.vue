@@ -35,6 +35,8 @@ export default {
     background-color: rgba(255, 255, 255, 0.9);
   }
 
+/* COLOR DE BOTON ACTIVO */
+
 .btnActive {
   background-color: burlywood;
 }
