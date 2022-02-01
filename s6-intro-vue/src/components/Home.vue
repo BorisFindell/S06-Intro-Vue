@@ -1,10 +1,12 @@
 <template>
 
   <div id="home" :style="{ backgroundImage: `url(${elementos[currentSentence].img})`}">
-    <div>
-      <botons @seg-sentence="clickSegSentence" @ant-sentence="clickAntSentence"></botons>
-      <escena :frases="elementos" :activeSentence="currentSentence"></escena>
-
+    <div v-if="!clic">
+        <Benving @comenzar="clic = true"></Benving>
+    </div>
+    <div v-else>
+        <Botons @seg-sentence="clickSegSentence" @ant-sentence="clickAntSentence"></Botons>
+        <Escena :frases="elementos" :activeSentence="currentSentence"></Escena>
     </div>
   </div>
 </template>
@@ -30,7 +32,8 @@ export default {
 
   {txt: "Mentrestant, altres heroes no van tenir tanta sort en la seva elecció ...", img:require("../assets/4.jpg")}
       ],
-      currentSentence: 0
+      currentSentence: 0,
+      clic: false
     }
   },
   methods:{
@@ -57,6 +60,7 @@ export default {
     #home{
         height:100vh;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size:cover;
+        background-position:bottom;
     }
 </style>

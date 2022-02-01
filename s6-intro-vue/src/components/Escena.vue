@@ -32,6 +32,7 @@ export default {
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
   }
 
 .btnActive {
